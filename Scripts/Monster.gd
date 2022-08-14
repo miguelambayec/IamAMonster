@@ -7,8 +7,8 @@ enum state {
 	kill
 }
 
-export var normal_speed := 7.0
-export var run_speed := 14.0
+export var normal_speed := 3.0
+export var run_speed := 6.0
 export var angular_acceleration := 7.0
 export(NodePath) var target_path
 
