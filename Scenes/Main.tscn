@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.48851, 0.780706 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "test"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 1.48851, 0.780706 ), Vector3( 0, 1.48851, 2.87397 ), Vector3( 0, 1.48851, 0.780706 ) ]
+}
+
+[node name="Main" type="Node"]
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="World"]
+transform = Transform( 1, 0, 0, 0, 0.497292, 0.867583, 0, -0.867583, 0.497292, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="World"]
+transform = Transform( 1, 0, 0, 0, 0.96378, 0.2667, 0, -0.2667, 0.96378, 0, 1.48851, 0.780706 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/Camera"]
+autoplay = "test"
+anims/RESET = SubResource( 1 )
+anims/test = SubResource( 2 )
