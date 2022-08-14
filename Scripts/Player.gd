@@ -13,8 +13,8 @@ onready var _model : Spatial = $Model
 
 func _physics_process(delta):
 	var move_direction := Vector3.ZERO
-	move_direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-	move_direction.z = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
+	move_direction.z = Input.get_action_strength("backward") - Input.get_action_strength("forward")
 	move_direction = move_direction.rotated(Vector3.UP, _spring_arm.rotation.y).normalized()
 	
 	_velocity.x = move_direction.x * speed
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	_velocity.y -= gravity * delta
 	
 	var just_landed := is_on_floor() and _snap_vector == Vector3.ZERO
-	var is_jumping := is_on_floor() and Input.is_action_just_pressed("ui_accept")
+	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump")
 	
 	if is_jumping:
 		_velocity.y = jump_strength
