@@ -9,7 +9,7 @@ var _is_jump_pressed := false
 func _ready():
 	animation.connect("animation_finished", self, "_on_animation_finished")
 
-func _process(_delta):
+func _physics_process(_delta):
 	if !_is_jump_pressed:
 		_is_jump_pressed = Input.is_action_just_pressed("jump")
 		
