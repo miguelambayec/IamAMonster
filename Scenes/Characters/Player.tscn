@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://3d Models/Player Human/MainCharacter.glb" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/AnimationController.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Scripts/SpringArm.gd" type="Script" id=4]
 
@@ -28,3 +29,7 @@ margin = 1.0
 script = ExtResource( 4 )
 
 [node name="Camera" type="Camera" parent="SpringArm"]
+
+[node name="AnimationController" type="Node" parent="."]
+script = ExtResource( 2 )
+player_path = NodePath("..")
