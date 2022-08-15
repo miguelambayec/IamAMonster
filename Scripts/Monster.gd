@@ -18,7 +18,6 @@ var _state
 
 onready var _target := get_node(target_path)
 onready var _model : Spatial = $Model
-onready var _animation : AnimationPlayer = _model.get_node("AnimationPlayer")
 
 func _ready():
 	_state = state.follow
